@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена — Fitolampy.ru</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4CAF50;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --light: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .error-container {
+            text-align: center;
+            padding: 3rem;
+            max-width: 600px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .error-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .redirect-text {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+        
+        .countdown {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 1rem;
+        }
+    </style>
+    <meta http-equiv="refresh" content="5;url=index.html">
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Страница не найдена</h1>
+        <p class="error-text">
+            Извините, запрошенная страница не существует или была перемещена. 
+            Мы автоматически перенаправим вас на главную страницу.
+        </p>
+        <p class="redirect-text">Если перенаправление не произойдёт, нажмите кнопку ниже:</p>
+        <a href="index.html" class="btn">Перейти на главную</a>
+        <div class="countdown">5</div>
+    </div>
+
+    <script>
+        let seconds = 5;
+        const countdown = document.querySelector('.countdown');
+        
+        const timer = setInterval(() => {
+            seconds--;
+            countdown.textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = 'index.html';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
